@@ -8,7 +8,7 @@ function Deposit(){
 
     function validate(field, label) {
         if (!field) {
-            setStatus('Error: Please provide a monetary amount.');
+            setStatus('Error: ' + label);
             setTimeout(() => setStatus(''), 3000);
             return false;
         }
@@ -17,7 +17,7 @@ function Deposit(){
 
     function handleDeposit() {
         console.log(deposit, balance);
-        if (!validate(deposit, 'deposit')) return;
+        if (!validate(deposit, 'Please provide a monetary amount.')) return;
         if (!validate(balance, 'balance')) return;
         ctx.users.push({deposit, balance});
         setShow(false);
