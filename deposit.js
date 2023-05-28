@@ -8,7 +8,7 @@ function Deposit(){
 
     function validate(field, label) {
         if (!field) {
-            setStatus('Error: ' + label);
+            setStatus('Error: Please provide a monetary amount.');
             setTimeout(() => setStatus(''), 3000);
             return false;
         }
@@ -36,9 +36,9 @@ function Deposit(){
             status={status}
             body={show ? (
                 <>
-                    Balance<br/>
-                    <input type="input" className="form-control" id="balance" placeholder="Enter name" value={balance} onChange={e => setBalance(e.currentTarget.value)} /><br/>
-                    Deposit Amount<br/>
+                    Balance:<br/>
+                    <input type="input" className="form-control" id="balance" placeholder="Balance Amount" value={balance} onChange={e => setBalance(e.currentTarget.value)}/><br/>
+                    Deposit Amount:<br/>
                     <input type="input" className="form-control" id="deposit" placeholder="Deposit Amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}/><br/>
                     <button type="submit" className="btn btn-light" onClick={handleDeposit}>Deposit</button>
                 </>
