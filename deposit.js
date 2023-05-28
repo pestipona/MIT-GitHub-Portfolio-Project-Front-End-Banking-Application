@@ -9,7 +9,7 @@ function Deposit(){
     function validate(field, label) {
         if (!field) {
             setStatus('Error: ' + label);
-            setTimeout(() => setStatus(''), 3000);
+            setTimeout(() => setStatus(''), 1500);
             return false;
         }
         return true;
@@ -32,6 +32,7 @@ function Deposit(){
     return (
         <Card
             bgcolor="success"
+            txtcolor="black"
             header="Deposit"
             status={status}
             body={show ? (

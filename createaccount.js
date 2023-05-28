@@ -9,8 +9,8 @@ function CreateAccount() {
 
     function validate(field, label) {
         if (!field) {
-            setStatus('Error: {lease fill in all fields');
-            setTimeout(() => setStatus(''), 3000);
+            setStatus('Error: ' + label);
+            setTimeout(() => setStatus(''), 1500);
             return false;
         }
         return true;
@@ -18,9 +18,9 @@ function CreateAccount() {
 
     function handleCreate() {
         console.log(name, email, password);
-        if (!validate(name, 'name')) return;
-        if (!validate(email, 'email')) return;
-        if (!validate(password, 'password')) return;
+        if (!validate(name, 'Please enter a name')) return;
+        if (!validate(email, 'Please enter an email')) return;
+        if (!validate(password, 'Please enter a password')) return;
         ctx.users.push({name, email, password, balance:100});
         setShow(false);
     }
@@ -35,6 +35,7 @@ function CreateAccount() {
     return (
         <Card
             bgcolor="primary"
+            txtcolor="black"
             header="Create Account"
             status={status}
             body={show ? (

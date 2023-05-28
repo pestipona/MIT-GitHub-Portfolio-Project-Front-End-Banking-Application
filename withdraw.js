@@ -9,7 +9,7 @@ function Withdraw(){
     function validate(field, label) {
         if (!field) {
             setStatus('Error: ' + label);
-            setTimeout(() => setStatus(''), 3000);
+            setTimeout(() => setStatus(''), 1500);
             return false;
         }
         return true;
@@ -32,6 +32,7 @@ function Withdraw(){
     return (
         <Card
             bgcolor="info"
+            txtcolor="black"
             header="Withdraw"
             status={status}
             body={show ? (
