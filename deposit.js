@@ -18,14 +18,12 @@ function Deposit(){
     function handleDeposit() {
         console.log(deposit, balance);
         if (!validate(deposit, 'Please provide a monetary amount.')) return;
-        if (!validate(balance, 'balance')) return;
         ctx.users.push({deposit, balance});
         setShow(false);
     }
 
     function clearForm() {
         setDeposit('');
-        setBalance('');
         setShow(true);
     }
 
@@ -37,8 +35,7 @@ function Deposit(){
             status={status}
             body={show ? (
                 <>
-                    Balance:<br/>
-                    <input type="input" className="form-control" id="balance" placeholder="Balance Amount" value={balance} onChange={e => setBalance(e.currentTarget.value)}/><br/>
+                    Balance: ${balance}<br/><br/>
                     Deposit Amount:<br/>
                     <input type="input" className="form-control" id="deposit" placeholder="Deposit Amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}/><br/>
                     <button type="submit" className="btn btn-light" onClick={handleDeposit}>Deposit</button>

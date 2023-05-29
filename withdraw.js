@@ -18,14 +18,12 @@ function Withdraw(){
     function handleWithdraw() {
         console.log(withdraw, balance);
         if (!validate(withdraw, 'Please provide a monetary amount.')) return;
-        if (!validate(balance, 'balance')) return;
         ctx.users.push({withdraw, balance});
         setShow(false);
     }
 
     function clearForm() {
         setWithdraw('');
-        setBalance('');
         setShow(true);
     }
 
@@ -37,8 +35,7 @@ function Withdraw(){
             status={status}
             body={show ? (
                 <>
-                    Balance:<br/>
-                    <input type="input" className="form-control" id="balance" placeholder="Balance Amount" value={balance} onChange={e => setBalance(e.currentTarget.value)}/><br/>
+                    Balance: ${balance}<br/><br/>
                     Withdraw Amount:<br/>
                     <input type="input" className="form-control" id="withdraw" placeholder="Withdraw Amount" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)}/><br/>
                     <button type="submit" className="btn btn-light" onClick={handleWithdraw}>Withdraw</button>
