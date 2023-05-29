@@ -21,7 +21,7 @@ function CreateAccount() {
         if (!validate(name, 'Please enter a name')) return;
         if (!validate(email, 'Please enter an email')) return;
         if (!validate(password, 'Please enter a password')) return;
-        ctx.users.push({name, email, password, balance:100});
+        ctx.users.push({name, email, password, balance:0});
         setShow(false);
     }
 
