@@ -37,7 +37,7 @@ function Withdraw(){
                     Balance: ${balance.toFixed(2)}<br/><br/>
                     Withdraw Amount:<br/>
                     <input type="input" className="form-control" id="withdraw" placeholder="Withdraw Amount" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)}/><br/>
-                    <button type="submit" className="btn btn-light" onClick={handleWithdraw}>Withdraw</button>
+                    <button type="submit" className="btn btn-light" disabled={withdraw <= 0} onClick={handleWithdraw}>Withdraw</button>
                 </>
             ):(
                 <>
