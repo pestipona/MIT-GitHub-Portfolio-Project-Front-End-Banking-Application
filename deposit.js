@@ -1,14 +1,20 @@
 function Deposit(){
 
-    const [show, setShow]         = React.useState(true);
-    const [deposit, setDeposit]   = React.useState('');
-    const [user, setUser]         = React.useState('');
-    const [balance, setBalance]   = React.useState(0);
     const ctx = React.useContext(UserContext);
 
     let arrayLength = ctx.users.length;
     let currentIndex = arrayLength - 1;
     let currentUser = ctx.users.at(currentIndex).name;
+    let currentBalance = ctx.users.at(currentIndex).balance
+
+    console.log(`current user : ${currentUser}`)
+    console.log(`current balance : ${currentBalance}`)
+
+    const [show, setShow]         = React.useState(true);
+    const [deposit, setDeposit]   = React.useState('');
+    const [user, setUser]         = React.useState(currentUser);
+    const [balance, setBalance]   = React.useState(currentBalance);
+
 
     function validate(field, label) {
         if (!field) {
@@ -49,9 +55,7 @@ function Deposit(){
         console.log(ctx.users.at(0).balance);
         let arrayLength = ctx.users.length;
         console.log(arrayLength);
-        console.log(ctx.users.at(1));
-        console.log(ctx.users.at(2));
-        console.log(ctx.users.at(3));
+
     }
 
     function clearForm() {
