@@ -9,6 +9,7 @@ function Deposit(){
     let currentUser = ctx.users.at(currentIndex).name;  // get name of current user
     let currentBalance = ctx.users.at(currentIndex).balance // get balance of current user
 
+    // for troubleshooting and testing
     console.log(`current user : ${currentUser}`)
     console.log(`current balance : ${currentBalance}`)
 
@@ -70,6 +71,7 @@ function Deposit(){
 
         // update current user's balance
         ctx.users.at(currentIndex).balance = newBalance;
+        // for troubleshooting and testing
         console.log(`Deposit Amount: $${deposit}`, `New Balance: $${newBalance}`);
 
     }

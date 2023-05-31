@@ -7,6 +7,7 @@ function CreateAccount() {
     let currentIndex = arrayLength - 1;     // get index of current user
     let currentUser = ctx.users.at(currentIndex).name;  // get name of current user
 
+    // for troubleshooting and testing
     console.log(`current user : ${currentUser}`)
 
     // create react state variables
@@ -38,6 +39,7 @@ function CreateAccount() {
 
     // handles creation of new user account
     function handleCreate() {
+        // for troubleshooting and testing
         console.log(`user: ${name}, email: ${email}, password: ${password}`);
 
         if (!validateEmptyField(name, 'Please enter a name')) return;
