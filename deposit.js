@@ -32,13 +32,13 @@ function Deposit(){
             return false;
         }
         else if (field < 0) {
-            setStatus('Error: Cannot Deposit a negative amount.');
+            setStatus('Error: Negative Deposit amount.');
             setTimeout(() => setStatus(''), 3000);
             setDeposit('');
             return false;
         }
         else if (isNaN(field)) {
-            setStatus('Error: Please provide numbers only.');
+            setStatus('Error: Not A Number.');
             setTimeout(() => setStatus(''), 3000);
             setDeposit('');
             return false;

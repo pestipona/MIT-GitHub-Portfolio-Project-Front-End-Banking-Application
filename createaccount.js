@@ -8,10 +8,19 @@ function CreateAccount() {
     const [email, setEmail]       = React.useState();
     const [password, setPassword] = React.useState();
 
-    function validate(field, label) {
+    function validateEmptyField(field, label) {
         if (!field) {
             setStatus('Error: ' + label);
-            setTimeout(() => setStatus(''), 1500);
+            setTimeout(() => setStatus(''), 3000);
+            return false;
+        }
+        return true;
+    }
+
+    function validatePasswordLength(field, label) {
+        if (field.length < 8) {
+            setStatus('Error: ' + label);
+            setTimeout(() => setStatus(''), 3000);
             return false;
         }
         return true;
@@ -19,9 +28,11 @@ function CreateAccount() {
 
     function handleCreate() {
         console.log(name, email, password);
-        if (!validate(name, 'Please enter a name')) return;
-        if (!validate(email, 'Please enter an email')) return;
-        if (!validate(password, 'Please enter a password')) return;
+        if (!validateEmptyField(name, 'Please enter a name')) return;
+        if (!validateEmptyField(email, 'Please enter an email')) return;
+        if (!validateEmptyField(password, 'Please enter a password')) return;
+        if (!validatePasswordLength(password, 'Password is less than 8 characters long.')) return;
+
         ctx.users.push({name, email, password, balance:0});
         setShow(false);
     }
@@ -47,7 +58,7 @@ function CreateAccount() {
                     <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
                     Password<br/>
                     <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-                    <button type="submit" className="btn btn-light" disabled={!name || !email || !password} onClick={handleCreate}>Create Account</button>
+                    <button type="submit" className="btn btn-light" disabled={!name && !email && !password} onClick={handleCreate}>Create Account</button>
                 </>
             ):(
                 <>
