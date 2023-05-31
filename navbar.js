@@ -2,7 +2,7 @@ function NavBar() {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">BadBank</a>
+                <a className="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="Home Page">BadBank</a>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -16,22 +16,16 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#/CreateAccount/">Create Account</a>
+                            <a className="nav-link nav-highlight" href="#/CreateAccount/" data-toggle="tooltip" data-placement="bottom" title="Create Account Page">Create Account</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#/login/">Login</a>
+                            <a className="nav-link nav-highlight" href="#/deposit/" data-toggle="tooltip" data-placement="bottom" title="Deposit Page">Deposit</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#/deposit/">Deposit</a>
+                            <a className="nav-link nav-highlight" href="#/withdraw/" data-toggle="tooltip" data-placement="bottom" title="Withdraw Page">Withdraw</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#/withdraw/">Withdraw</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#/balance/">Balance</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#/alldata/">AllData</a>
+                            <a className="nav-link nav-highlight" href="#/alldata/" data-toggle="tooltip" data-placement="bottom" title="All Data Page">AllData</a>
                         </li>
                     </ul>
                 </div>

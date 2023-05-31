@@ -1,21 +1,25 @@
 function Deposit(){
 
+    // create variable for user context:
     const ctx = React.useContext(UserContext);
 
-    let arrayLength = ctx.users.length;
-    let currentIndex = arrayLength - 1;
-    let currentUser = ctx.users.at(currentIndex).name;
-    let currentBalance = ctx.users.at(currentIndex).balance
+    // get variables for current user:
+    let arrayLength = ctx.users.length;     // get array length
+    let currentIndex = arrayLength - 1;     // get index of current user
+    let currentUser = ctx.users.at(currentIndex).name;  // get name of current user
+    let currentBalance = ctx.users.at(currentIndex).balance // get balance of current user
 
     console.log(`current user : ${currentUser}`)
     console.log(`current balance : ${currentBalance}`)
 
+    // create react state variables
     const [show, setShow]         = React.useState(true);
     const [deposit, setDeposit]   = React.useState('');
     const [user, setUser]         = React.useState(currentUser);
     const [balance, setBalance]   = React.useState(currentBalance);
 
 
+    // form validation
     function validate(field, label) {
         if (!field) {
             setStatus('Error: ' + label);
@@ -25,6 +29,7 @@ function Deposit(){
         return true;
     }
 
+    // This function handles the updating of the current user's balance
     function handleDeposit() {
         if (!validate(deposit, 'Please provide a monetary amount.')) return;
 
