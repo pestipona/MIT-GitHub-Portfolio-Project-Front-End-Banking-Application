@@ -15,23 +15,42 @@ function Deposit(){
     // create react state variables
     const [show, setShow]         = React.useState(true);
     const [deposit, setDeposit]   = React.useState('');
+    const [status, setStatus]     = React.useState();
     const [user, setUser]         = React.useState(currentUser);
     const [balance, setBalance]   = React.useState(currentBalance);
 
 
     // form validation
-    function validate(field, label) {
+    function validate(field) {
+        console.log(field);
+
+
         if (!field) {
-            setStatus('Error: ' + label);
-            setTimeout(() => setStatus(''), 1500);
+            setStatus('Error: Please provide a monetary amount.');
+            setTimeout(() => setStatus(''), 3000);
+            setDeposit('');
+            return false;
+        }
+        else if (field < 0) {
+            setStatus('Error: Cannot Deposit a negative amount.');
+            setTimeout(() => setStatus(''), 3000);
+            setDeposit('');
+            return false;
+        }
+        else if (isNaN(field)) {
+            setStatus('Error: Please provide numbers only.');
+            setTimeout(() => setStatus(''), 3000);
+            setDeposit('');
             return false;
         }
         return true;
     }
 
+    // This function performs input validation on the deposit amount
     // This function handles the updating of the current user's balance
     function handleDeposit() {
-        if (!validate(deposit, 'Please provide a monetary amount.')) return;
+
+        if (!validate(deposit)) return;
 
         let stringBalance = parseFloat(balance).toFixed(2);
         let numBalance = parseFloat(stringBalance);
@@ -61,12 +80,13 @@ function Deposit(){
             bgcolor="success"
             txtcolor="black"
             header="Deposit"
+            status={status}
             body={show ? (
                 <>
                     Balance: ${balance}<br/><br/>
                     Deposit Amount:<br/>
                     <input type="input" className="form-control" id="deposit" placeholder="Deposit Amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}/><br/>
-                    <button type="submit" className="btn btn-light" disabled={deposit <= 0} onClick={handleDeposit}>Deposit</button>
+                    <button type="submit" className="btn btn-light" disabled={!deposit} onClick={handleDeposit}>Deposit</button>
                 </>
             ):(
                 <>
