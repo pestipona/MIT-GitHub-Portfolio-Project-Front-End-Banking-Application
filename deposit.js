@@ -45,21 +45,9 @@ function Deposit(){
         setBalance(newBalance);
         setShow(false);
 
-        console.log(`Deposit Amount: $${deposit}`, `New Balance: $${newBalance}`);
-        //let currentIndex = ctx.users.values();
-        //ctx.users[currentIndex].balance = newBalance;
-
+        // update current user's balance
         ctx.users.at(currentIndex).balance = newBalance;
-
-        console.log(ctx.users);
-        console.log(ctx.users.values());
-        console.log(ctx.users.at(0));
-        console.log(ctx.users.at(0).name);
-        console.log(ctx.users.at(0).email);
-        console.log(ctx.users.at(0).password);
-        console.log(ctx.users.at(0).balance);
-        let arrayLength = ctx.users.length;
-        console.log(arrayLength);
+        console.log(`Deposit Amount: $${deposit}`, `New Balance: $${newBalance}`);
 
     }
 
