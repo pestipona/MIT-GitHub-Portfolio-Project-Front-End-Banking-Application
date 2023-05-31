@@ -2,12 +2,21 @@ function CreateAccount() {
 
     const ctx = React.useContext(UserContext);
 
+    // get variables for current user:
+    let arrayLength = ctx.users.length;     // get array length
+    let currentIndex = arrayLength - 1;     // get index of current user
+    let currentUser = ctx.users.at(currentIndex).name;  // get name of current user
+
+    console.log(`current user : ${currentUser}`)
+
+    // create react state variables
     const [show, setShow]         = React.useState(true);
     const [status, setStatus]     = React.useState();
     const [name, setName]         = React.useState();
     const [email, setEmail]       = React.useState();
     const [password, setPassword] = React.useState();
 
+    // validate empty fields
     function validateEmptyField(field, label) {
         if (!field) {
             setStatus('Error: ' + label);
@@ -17,6 +26,7 @@ function CreateAccount() {
         return true;
     }
 
+    // validate password length
     function validatePasswordLength(field, label) {
         if (field.length < 8) {
             setStatus('Error: ' + label);
@@ -26,13 +36,16 @@ function CreateAccount() {
         return true;
     }
 
+    // handles creation of new user account
     function handleCreate() {
-        console.log(name, email, password);
+        console.log(`user: ${name}, email: ${email}, password: ${password}`);
+
         if (!validateEmptyField(name, 'Please enter a name')) return;
         if (!validateEmptyField(email, 'Please enter an email')) return;
         if (!validateEmptyField(password, 'Please enter a password')) return;
         if (!validatePasswordLength(password, 'Password is less than 8 characters long.')) return;
 
+        // add new user to array list
         ctx.users.push({name, email, password, balance:0});
         setShow(false);
     }

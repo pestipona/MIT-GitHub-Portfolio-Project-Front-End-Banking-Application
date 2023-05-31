@@ -20,10 +20,8 @@ function Deposit(){
     const [balance, setBalance]   = React.useState(currentBalance);
 
 
-    // form validation
+    // input validation
     function validate(field) {
-        console.log(field);
-
 
         if (!field) {
             setStatus('Error: Please provide a monetary amount.');
@@ -33,6 +31,12 @@ function Deposit(){
         }
         else if (field < 0) {
             setStatus('Error: Negative Deposit amount.');
+            setTimeout(() => setStatus(''), 3000);
+            setDeposit('');
+            return false;
+        }
+        else if (field == 0) {
+            setStatus('Error: Amount entered is 0.');
             setTimeout(() => setStatus(''), 3000);
             setDeposit('');
             return false;
