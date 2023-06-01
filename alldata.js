@@ -1,9 +1,11 @@
 function AllData(){
     const ctx = React.useContext(UserContext);
+
+
     return (
-        <h1>All Data:<br/>
-            {JSON.stringify(ctx)}<br/>
+        <>
             <table className="table table-striped table-bordered">
+
                 <thead className="bg-primary">
                 <tr>
                     <th scope="col">Account No.</th>
@@ -37,7 +39,8 @@ function AllData(){
                 </tr>
                 </tbody>
             </table>
-        </h1>
-
+            <br/>
+            {JSON.stringify(ctx)}<br/>
+        </>
     );
 }

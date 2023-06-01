@@ -3,6 +3,7 @@ const Link        = ReactRouterDOM.Link;
 const HashRouter  = ReactRouterDOM.HashRouter;
 const UserContext = React.createContext(null);
 
+// card component
 function Card(props) {
     function classes() {
         const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
@@ -21,4 +22,22 @@ function Card(props) {
             </div>
         </div>
     );
+}
+
+// table component
+function Table(props) {
+    const TableProvider = ({ children }) => {
+
+        const [tableData, setTableData] = useState([]);
+
+        const updateTableData = (newData) => {
+            setTableData(newData);
+        };
+
+        return (
+            <UserContext.Provider value={{tableData, updateTableData}}>
+                {children}
+            </UserContext.Provider>
+        );
+    };
 }
