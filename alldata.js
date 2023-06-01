@@ -1,72 +1,37 @@
 function AllData(){
 
-    const arrayData = React.useContext(UserContext);     // create variable for user context:
-    let arrayLength = arrayData.users.length;    // get array length
-
-    console.log(arrayData.users.at(arrayLength-1));
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-        const tableBody = document.getElementById('table-body');
-
-        for (let i = 0; i < arrayLength; i++) {
-            const row          = tableBody.insertRow();
-
-            const idCell       = row.insertCell(0);
-            const nameCell     = row.insertCell(1);
-            const emailCell    = row.insertCell(2);
-            const passwordCell = row.insertCell(3);
-            const balanceCell  = row.insertCell(4);
-
-            idCell.textContent       = i;
-            nameCell.textContent     = arrayData.users.at(i).name;
-            emailCell.textContent    = arrayData.users.at(i).email;
-            passwordCell.textContent = arrayData.users.at(i).password;
-            balanceCell.textContent  = arrayData.users.at(i).balance;
-
-            console.log('Inside DOMContentLoaded');
-
-            console.log(i);
-            console.log(arrayData.users.at(i).name);
-            console.log(arrayData.users.at(i).email);
-            console.log(arrayData.users.at(i).password);
-            console.log(arrayData.users.at(i).balance);
-        }
-    });
+    const arrayData = React.useContext(UserContext);     // create variable for user context
 
     return (
         <>
             <div className="container">
                 <h1 className="text text-primary text-center ">Bad Bank Data</h1>
                 <h6 className="text text-primary text-center">Bad Bank User Account Information</h6>
-                <table className="table-striped border-success">
+                <table className="table-striped border-success" >
+                    <colgroup className="text-center">
+                        <col width="20%"/>
+                        <col width="20%"/>
+                        <col width="20%"/>
+                        <col width="20%"/>
+                        <col width="20%"/>
+                    </colgroup>
                     <thead>
                     <tr>
-                        <th scope="col" data-field="id">
-                            <span className="text-primary">Account ID</span>
-                        </th>
-                        <th scope="col" data-field="name">
-                            <span className="text-primary">Name</span>
-                        </th>
-                        <th scope="col" data-field="date">
-                            <span className="text-primary">Email</span>
-                        </th>
-                        <th scope="col" data-field="date">
-                            <span className="text-primary">Password</span>
-                        </th>
-                        <th scope="col" data-field="date">
-                            <span className="text-primary">Balance</span>
-                        </th>
+                        <th scope="col" data-field="id"   className="text-primary">Account ID</th>
+                        <th scope="col" data-field="name" className="text-primary">Name</th>
+                        <th scope="col" data-field="date" className="text-primary">Email</th>
+                        <th scope="col" data-field="date" className="text-primary">Password</th>
+                        <th scope="col" data-field="date" className="text-primary">Balance</th>
                     </tr>
                     </thead>
-                    <tbody id="table-body">
+                    <tbody id="table-body" >
                         {arrayData.users.map((value, index) => (
                             <tr key={index}>
-                                <td>{index}</td>
-                                <td>{value.name}</td>
-                                <td>{value.email}</td>
-                                <td>{value.password}</td>
-                                <td>{value.balance}</td>
+                                <td className="text-center">{index}</td>
+                                <td className="text-left">{value.name}</td>
+                                <td className="text-left">{value.email}</td>
+                                <td className="text-left">{value.password}</td>
+                                <td className="text-left">{value.balance}</td>
                             </tr>
                         ))}
                     </tbody>
