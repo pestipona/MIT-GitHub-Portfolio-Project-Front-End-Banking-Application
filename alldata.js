@@ -1,7 +1,41 @@
 function AllData(){
 
-    function TableComponent() {
-        return (
+    const arrayData = React.useContext(UserContext);     // create variable for user context:
+    let arrayLength = arrayData.users.length;    // get array length
+
+    console.log(arrayData.users.at(arrayLength-1));
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const tableBody = document.getElementById('table-body');
+
+        for (let i = 0; i < arrayLength; i++) {
+            const row          = tableBody.insertRow();
+
+            const idCell       = row.insertCell(0);
+            const nameCell     = row.insertCell(1);
+            const emailCell    = row.insertCell(2);
+            const passwordCell = row.insertCell(3);
+            const balanceCell  = row.insertCell(4);
+
+            idCell.textContent       = i;
+            nameCell.textContent     = arrayData.users.at(i).name;
+            emailCell.textContent    = arrayData.users.at(i).email;
+            passwordCell.textContent = arrayData.users.at(i).password;
+            balanceCell.textContent  = arrayData.users.at(i).balance;
+
+            console.log('Inside DOMContentLoaded');
+
+            console.log(i);
+            console.log(arrayData.users.at(i).name);
+            console.log(arrayData.users.at(i).email);
+            console.log(arrayData.users.at(i).password);
+            console.log(arrayData.users.at(i).balance);
+        }
+    });
+
+    return (
+        <>
             <div className="container">
                 <h1 className="text text-primary text-center ">Bad Bank Data</h1>
                 <h6 className="text text-primary text-center">Bad Bank User Account Information</h6>
@@ -25,38 +59,19 @@ function AllData(){
                         </th>
                     </tr>
                     </thead>
-                    <tbody id="table-body"></tbody>
+                    <tbody id="table-body">
+                        {arrayData.users.map((value, index) => (
+                            <tr key={index}>
+                                <td>{index}</td>
+                                <td>{value.name}</td>
+                                <td>{value.email}</td>
+                                <td>{value.password}</td>
+                                <td>{value.balance}</td>
+                            </tr>
+                        ))}
+                    </tbody>
                 </table>
             </div>
-        );
-    }
-
-
-    const ctx = React.useContext(UserContext);  // create variable for user context:
-    let arrayLength = ctx.users.length;    // get array length
-
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const tableBody = document.getElementById('table-body');
-
-        for (let i = 0; i < arrayLength; i++) {
-            const row = tableBody.insertRow();
-            const idCell = row.insertCell(0);
-            const nameCell = row.insertCell(1);
-            const emailCell = row.insertCell(2);
-            const passwordCell = row.insertCell(3);
-            const balanceCell = row.insertCell(4);
-
-            idCell.textContent = i;
-            nameCell.textContent = ctx.users.at(i).name;
-            emailCell.textContent = ctx.users.at(i).email;
-            passwordCell.textContent = ctx.users.at(i).password;
-            balanceCell.textContent = ctx.users.at(i).balance;
-        }
-    });
-
-    return (
-        <TableComponent/>
+        </>
     );
 }
