@@ -24,20 +24,35 @@ function Card(props) {
     );
 }
 
-// table component
-function Table(props) {
-    const TableProvider = ({ children }) => {
+function Table() {
+    function classes() {
+    }
+    return(
+        <div className="container">
+            <h1 className="text text-primary text-center ">Bad Bank Data</h1>
+            <h6 className="text text-primary text-center">Bad Bank User Account Information</h6>
+            <table className="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th data-field="id">
+                        <span className="text-primary">Account ID</span>
+                    </th>
+                    <th data-field="name">
+                        <span className="text-primary">Name</span>
+                    </th>
+                    <th data-field="date">
+                        <span className="text-primary">Email</span>
+                    </th>
+                    <th data-field="date">
+                        <span className="text-primary">Password</span>
+                    </th>
+                    <th data-field="date">
+                        <span className="text-primary">Balance</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
 
-        const [tableData, setTableData] = useState([]);
-
-        const updateTableData = (newData) => {
-            setTableData(newData);
-        };
-
-        return (
-            <UserContext.Provider value={{tableData, updateTableData}}>
-                {children}
-            </UserContext.Provider>
-        );
-    };
+    );
 }
