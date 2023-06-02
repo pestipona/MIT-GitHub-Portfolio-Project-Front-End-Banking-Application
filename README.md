@@ -1,5 +1,7 @@
 # MIT GitHub Portfolio Project - Front End Banking Application:
 
+![bank-services-concept.jpg](Pics%2Fbank-services-concept.jpg)
+
 ## I. Description:
 
 This **front-end banking application** was built using **React** which features a range of technologies that contributed to its functionality and user experience. **Routing** was implemented using **React Router**, allowing seamless navigation between different pages within the application. It ensures smooth transitions and a consistent user experience throughout the banking features.
