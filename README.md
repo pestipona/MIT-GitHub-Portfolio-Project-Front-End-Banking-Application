@@ -21,10 +21,54 @@ The **web application** consists of the following pages:
 * **Withdraw:** this page allows the user to enter a withdrawal amount with some minimal input validation.
 * **AllData:** this page displays a table of all current users with their information such as email, password, and balance. It should be noted that the passwords are NOT hashed and in plaintext. Hashing the passwords are part of future developments.
 
-# How to run it
 
+Link to AWS Deployment: **[Bad Bank Web Application]()**
 
-## Online Resources:
+## II. How to Run:
+
+To run the **web application** locally from **source code** obtained from **GitHub**, you can follow these general steps:
+
+**1. Clone the Repository:**
+  - Visit the GitHub repository hosting the web application's source code.
+  - Click on the "Code" button and copy the repository's URL.
+  - Open a terminal or command prompt on your local machine.
+  - Use the `git clone` command followed by the repository URL to clone the repository to your local machine.
+
+**2. Install Dependencies:**
+  - Navigate to the project's root directory in the terminal or command prompt.
+  - Check for any dependency files like `package.json` or `requirements.txt`.
+  - If there is a `package.json` file, run `npm install` to install JavaScript dependencies using Node Package Manager (NPM).
+  - If there is a `requirements.txt` file, run `pip install -r requirements.txt` to install Python dependencies using pip.
+
+**3. Configure Environment Variables:**
+  - Look for any configuration files or documentation mentioning environment variables.
+  - Set any required environment variables for the web application, such as API keys, database credentials, or other configuration settings.
+  - Create a `.env` file in the project's root directory if needed and populate it with the necessary variables.
+
+**4. Build the Application:**
+  - If the web application requires a build step, follow the instructions provided in the project's documentation.
+  - Typically, this involves running a build command, such as `npm run build`, to generate the optimized and compiled version of the application.
+
+**5. Start the Local Server:**
+  - Execute the appropriate command to start the local server.
+  - This could be something like `npm start`, `http-server -c1-1`, or any custom command mentioned in the project's documentation.
+  - Once the server starts successfully, it will typically provide a local URL (e.g., `http://localhost:3000`) where you can access the web application in your browser.
+
+**6. Access the Web Application:**
+  - Open your web browser and visit the local URL provided by the server.
+  - The web application should now be running locally, allowing you to interact with it as if it were hosted online.
+
+It's important to note that these steps may vary depending on the specific web application, programming languages, frameworks, or build tools used. Always refer to the project's documentation or README file for any specific instructions or requirements.
+
+## III. Future Additions:
+
+To enhance the security and functionality of the front-end web-based banking application, future development code can be implemented to support features such as login functionality, password hashing, and overall application security.
+
+For login functionality, a user authentication system can be incorporated, which includes capturing and validating user credentials, managing user sessions, and providing secure access to protected areas of the application. Password hashing techniques, like bcrypt or Argon2
+
+Incorporating a backend framework and database are also planned for future updates.
+
+## IV. Online Resources:
 
 ### Bootstrap Resource pages:
 * [Introduction to Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
@@ -48,8 +92,14 @@ The **web application** consists of the following pages:
 ### Other Sources:
 
 * [Bank Icon Pics](https://www.freepik.com/search?format=search&page=2&query=Bank+Icons)
-## License information
-MIT License
+
+## V. License information:
+
+### Author: Paul Estipona
+
+Student at MIT - Fullstack Development with MERN
+
+### MIT License:
 
 Copyright (c) 2023 Paul Estipona
 
