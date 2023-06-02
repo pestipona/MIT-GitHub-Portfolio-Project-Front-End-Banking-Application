@@ -23,35 +23,3 @@ function Card(props) {
         </div>
     );
 }
-
-function Table() {
-
-    return(
-        <div className="container">
-            <h1 className="text text-primary text-center ">Bad Bank Data</h1>
-            <h6 className="text text-primary text-center">Bad Bank User Account Information</h6>
-            <table className="table-striped border-success">
-                <thead>
-                <tr>
-                    <th scope="col" data-field="id">
-                        <span className="text-primary">Account ID</span>
-                    </th>
-                    <th scope="col" data-field="name">
-                        <span className="text-primary">Name</span>
-                    </th>
-                    <th scope="col" data-field="date">
-                        <span className="text-primary">Email</span>
-                    </th>
-                    <th scope="col" data-field="date">
-                        <span className="text-primary">Password</span>
-                    </th>
-                    <th scope="col" data-field="date">
-                        <span className="text-primary">Balance</span>
-                    </th>
-                </tr>
-                </thead>
-                <tbody id="table-body"></tbody>
-            </table>
-        </div>
-    );
-}
