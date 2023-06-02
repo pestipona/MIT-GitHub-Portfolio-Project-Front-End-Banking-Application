@@ -15,7 +15,9 @@
   color: black; /* Change the body cell text color to green */
 }
 
-
+Card {
+  margin-left: 20px; /* Adjust the left margin to move the card away from the edge */
+}
 
 
 
