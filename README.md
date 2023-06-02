@@ -26,7 +26,7 @@ The **web application** consists of the following pages:
 
 Link to AWS Deployment: **[Bad Bank Web Application]()**
 
-## II. How to Run:
+## II.A. How to Run (Locally):
 
 To run the **web application** locally from **source code** obtained from **GitHub**, you can follow these general steps:
 
@@ -61,6 +61,42 @@ To run the **web application** locally from **source code** obtained from **GitH
   - The web application should now be running locally, allowing you to interact with it as if it were hosted online.
 
 It's important to note that these steps may vary depending on the specific web application, programming languages, frameworks, or build tools used. Always refer to the project's documentation or README file for any specific instructions or requirements.
+
+## II.B. How to Run (AWS S3 Stand Alone Static Web Page):
+
+Deployment For React Standalone
+
+If you’re using the standalone version of the app (not create-react-app), you can still deploy your application to an S3 bucket. The same rules still apply, you have to upload all your application files to the bucket and make it publicly accessible.
+
+You can make your S3 bucket publicly accessible by [following these steps](https://docs.aws.amazon.com/pdfs/AmazonS3/latest/userguide/s3-userguide.pdf#EnableWebsiteHosting):
+
+* Go to your S3 bucket and locate the “Permissions” tab
+* Once on that tab, scroll down to the “Bucket Policy” section and click “edit” 
+* Paste the following JSON into the box, making sure you change FIRSTNAME_LASTNAMEBANKINGAPP to your actual bucket name:
+
+```json
+{
+    "Version": "2008-10-17",
+
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::FIRSTNAME_LASTNAMEBANKINGAPP/*"
+        }
+    ]
+}
+```
+
+* Click save.
+
+* Your bucket should now be publicly accessible.
+
 
 ## III. Future Additions:
 
